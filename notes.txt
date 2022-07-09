@@ -1,0 +1,17 @@
+tinyArrary insert: 44.167 μs append: 65.334 μs
+smallArrary insert: 35.125 μs append: 76.834 μs
+mediumArrary insert: 205.459 μs append: 126.25 μs
+largeArrary insert: 10.364583 ms append: 635.167 μs
+extraLarge insert: 1.265455708 s append: 2.689709 ms
+
+
+While both functions take progressively more time as you add items to the array,
+the insert function scales much faster. The append function seems to scale very linearly
+with how many items are in the array, while the insert option scales much more. just looking at
+the extraLarge array results, we can see that the insert took significantly more time than
+the append function
+
+After doing some research, I found out that the insert option actually has to move each item in the
+array to a new spot in memory, making the runtime of the function significantly worse. The 
+append option only has to add an item to the end of the array in memory, making it have a faster
+runtime.
